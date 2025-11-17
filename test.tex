@@ -1,5 +1,4 @@
 \documentclass[11pt, draft]{article}
-
 \usepackage[utf8]{inputenc}
 \usepackage[margin=35truemm]{geometry} % 余白を35mmに設定
 
@@ -31,9 +30,67 @@
 \usepackage{pxjahyper} % hyperrefの日本語文字化け対策
 \begin{document}
 
-\title{テスト文書}
-\author{一ノ瀬}
+\title{共形場理論}
+\author{小武 龍斗}
 \date{\today}
 \maketitle
+\section{}
+\section{共形変換}
+まず共形変換の定義を与える。共形変換は、二つの多様体$M,N$の開集合$U,V$に対して、微分可能写像を$\varphi: U \to V$とする。
+$g$と$g'$はそれぞれ$M$と$N$の計量テンソルである。
+このとき引き戻しが$$\varphi^* g' = \Omega g$$を満たすとき、共形変換であると言う。ここで$\Omega$は$U$上のスカラー関数である。\\
+このとき$\phi=x'$とすると$T_pM$の基底ベクトル$\pdv{x^\mu},\pdv{x^\nu}$を代入して$$g'\qty(\phi_*\qty(\pdv{x^\mu}),\phi_*\qty(\pdv{x^\nu})) = \Lambda g\qty(\pdv{x^\mu},\pdv{x^\nu})$$が成り立つ。
+\begin{align}
+    g'\qty(\pdv{x^\rho}{x^\mu}\pdv{x'^\rho},\pdv{x^\sigma}{x^\nu}\pdv{x'^\sigma}) &= \Lambda g\qty(\pdv{x^\mu},\pdv{x^\nu})\\
+    g'_{\rho\sigma}\pdv{x^\rho}{x^\mu}\pdv{x^\sigma}{x^\nu} &= \Lambda g_{\mu\nu}
+\end{align}
+ここでは$M=M',g=g'$とすると次の関係が成り立つ。
+\begin{align}
+    \eta_{\rho \sigma}\pdv{x'^\rho}{x^\mu}\pdv{x'^\sigma}{x^\nu} &= \Lambda(x) \eta_{\mu\nu}\label{3}
+\end{align}
+次に線素を考える。線素は$ds^2 = \eta_{\mu\nu}dx^\mu dx^\nu$で与えられる。共形変換の下での線素は
+\begin{align}
+ds^2= \eta_{\rho \sigma}dx'^\rho dx'^\sigma
+= \eta_{\rho \sigma}\pdv{x'^\rho}{x^\mu}\pdv{x'^\sigma}{x^\nu}dx^\mu dx^\nu
+= \Lambda \eta_{\mu\nu}dx^\mu dx^\nu
+\end{align}
+つまり、共形変換とはローレンツ変換とスケール変換の組み合わせであることがわかる。
+\subsection{共形群}
+2つの共形変換の合成も共形変換であるので、共形変換全体は群を成す。この群を共形群と呼ぶ。$\Lambda(x)=1$ならポアンカレ群に対応する。
+\subsection{無限小変換}
+flat spaceにおける無限小共形変換を考える。$x^\mu \to x'^\mu = x^\mu + \epsilon^\mu(x) (\epsilon<<1)$とする。
+これを(\ref{3})式に代入すると
+\begin{align}
+    \eta_{\rho \sigma}\pdv{x'^\rho}{x^\mu}\pdv{x'^\sigma}{x^\nu} &= \Lambda(x) \eta_{\mu\nu}\\
+    \eta_{\rho \sigma}\qty(\delta^\rho_\mu + \pdv{\epsilon^\rho}{x^\mu})\qty(\delta^\sigma_\nu + \pdv{\epsilon^\sigma}{x^\nu}) &= \qty(1+K(x)) \eta_{\mu\nu}\\
+    \partial_\mu \epsilon_\nu + \partial_\nu \epsilon_\mu &= K(x) \eta_{\mu\nu}\label{7}
+\end{align}
+この$K(x)$をどうにか表せないか考える。トレースをとる操作を行う。つまり両辺に$\eta^{\nu\mu}$
+\begin{align}
+    \partial_\mu \epsilon^\mu + \partial_\nu \epsilon^\nu &= K(x) \eta_{\mu\nu}\eta^{\nu\mu}\\
+    K(x)=\frac{2\partial^\mu\epsilon_\mu}{d}\\
+\end{align}
+これを(\ref{7})式に代入すると
+\begin{align}
+    \partial_\mu \epsilon_\nu + \partial_\nu \epsilon_\mu &= \frac{2}{d}(\partial\cdot\epsilon)\eta_{\mu\nu}\label{10}
+\end{align}
+両辺を$\partial^\nu$を作用させると
+\begin{align}
+    \partial^\nu\partial_\mu \epsilon_\nu + \partial^2 \epsilon_\mu &= \frac{2}{d}\partial^\nu\eta_{\mu\nu}(\partial\cdot\epsilon)\\
+    \partial_\mu(\partial\cdot\epsilon) + \square \epsilon_\mu &= \frac{2}{d}\partial_\mu(\partial\cdot\epsilon)\\
+\end{align}
+これの$\mu$と$\nu$を入れ替えたものを用意し、辺辺足しあげると
+\begin{align}
+    2\partial_\mu\partial_\nu(\partial\cdot\epsilon) + 2\square \epsilon_\mu &= \frac{4}{d}\partial_\mu\partial_\nu(\partial\cdot\epsilon)\\
+    d \partial_\mu\partial_\nu(\partial\cdot\epsilon) + \square \eta_{\mu\nu}(\partial \cdot \epsilon) &= 2\partial_\mu\partial_\nu(\partial\cdot\epsilon)\\
+    \eta_{\mu\nu}\square(\partial\cdot\epsilon) +(d-2)\partial_\mu\partial_\nu(\partial\cdot\epsilon)&=0\label{14}
+\end{align}
+$\eta^{\mu\nu}$をかけてトレースをとると
+\begin{align}   
+    \square(\partial\cdot\epsilon) +(d-2)\square(\partial\cdot\epsilon)&=0\\
+    d\square(\partial\cdot\epsilon)&=0
+\end{align}
+
+
 
 \end{document}
