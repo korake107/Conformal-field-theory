@@ -72,7 +72,7 @@ flat spaceにおける無限小共形変換を考える。$x^\mu \to x'^\mu = x^
 \end{align}
 これを(\ref{7})式に代入すると
 \begin{align}
-    \partial_\mu \epsilon_\nu + \partial_\nu \epsilon_\mu &= \frac{2}{d}(\partial\cdot\epsilon)\eta_{\mu\nu}\label{10}
+    \partial_\mu \epsilon_\nu + \partial_\nu \epsilon_\mu &= \frac{2}{d}(\partial\cdot\epsilon)\eta_{\mu\nu}\label{11}
 \end{align}
 両辺を$\partial^\nu$を作用させると
 \begin{align}
@@ -88,8 +88,78 @@ flat spaceにおける無限小共形変換を考える。$x^\mu \to x'^\mu = x^
 $\eta^{\mu\nu}$をかけてトレースをとると
 \begin{align}   
     \square(\partial\cdot\epsilon) +(d-2)\square(\partial\cdot\epsilon)&=0\\
-    d\square(\partial\cdot\epsilon)&=0
+    (d-1)\square(\partial\cdot\epsilon)&=0
 \end{align}
+(\ref{11})式に$\partial_\rho $を作用させ、添え字を入れ替えたもの3式を用意し、辺辺足し引きすることにより、次の式を得る。
+\begin{align}
+    2\partial_\rho\partial_\mu \epsilon_\nu &= \frac{2}{d}\qty(\eta_{\mu\rho}\partial_\nu + \eta_{\nu\rho}\partial_\mu - \eta_{\mu\nu}\partial_\rho)(\partial\cdot\epsilon)\label{18}
+\end{align}
+\section{2次元の共形場理論}
+(\ref{11})より次の関係が成り立つ。
+\begin{align}
+    \partial_1\epsilon_1 &= \partial_2\epsilon_2\\
+    \partial_1\epsilon_2 &= -\partial_2\epsilon_1
+\end{align}
+この式は複素解析におけるコーシー・リーマンの方程式と同じ形をしている。ここで$z=x^1+ix^2,\bar{z}=x^1-ix^2$と定義する。また、$\epsilon(z,\bar{z})=\epsilon_1(x^1,x^2)+i\epsilon_2(x^1,x^2)$と定義する。このとき、$\epsilon$は$z$のみに依存する正則関数である。
+つまり、$z'=z+\epsilon(z)$と変換するとき、これは共形変換となる。すなはち、無限小変換は2次元の複素平面上の正則関数によって与えられる。
+実際に、複素平面における任意の正則変換は共形変換であることを示す。
+共形変換の条件を満たすか確認する。線素は次のように表される。
+\begin{align}
+    ds^2 &= dx^1 + dx^2\\
+    &= dz d\bar{z}  
+\end{align}
+ここで、$z \to z' = f(z), \bar{z} \to \bar{z}' = \bar{f}(\bar{z})$と変換する。このとき線素は
+\begin{align}
+    ds^2 &= dz' d\bar{z}'\\
+    &= \pdv{f}{z}\pdv{\bar{f}}{\bar{z}} dz d\bar{z}\\
+    &= \qty|\pdv{f}{z}| ds^2
+\end{align}
+となる。したがって、任意の正則関数は共形変換を与えることがわかる。
+\\
+無限小変換から場の無限小変換を求める。そのためにまず、無限小変換に対してローラン展開をする。
+\begin{align}
+    z' &= z + \epsilon(z)=z+\sum_{n\in \mathcal{Z}}\epsilon_n\cdot(-z^{n+1})\\
+    \bar{z'}&=\bar{z}+\bar{\epsilon}(\epsilon)=\bar{z}+\sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot(-\bar{z}^{n+1})
+\end{align}
+無次元スカラー場を考える。
+\begin{align}
+    \phi'(z',\bar{z'})=\phi(z,\bar{z})
+\end{align}
+場の無限小変換を求める。
+\begin{align}
+    \delta \phi(z,\bar{z}) &= \phi'(z,\bar{z}) - \phi(z,\bar{z})\\
+    &= -\epsilon(z)\partial_z \phi(z,\bar{z}) - \bar{\epsilon}(\bar{z})\partial_{\bar{z}} \phi(z,\bar{z})\\
+    &= -\sum_{n\in \mathcal{Z}}\epsilon_n\cdot(-z^{n+1})\partial_z \phi(z,\bar{z}) - \sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot(-\bar{z}^{n+1})\partial_{\bar{z}} \phi(z,\bar{z})\\
+    &= \sum_{n\in \mathcal{Z}}\epsilon_n\cdot l_n \phi(z,\bar{z}) + \sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot \bar{l}_n \phi(z,\bar{z})  
+\end{align}
+ただし、生成子は$l_n=-z^{n+1}\partial,\bar{l}_n=-\bar{z}^{n+1}\bar{\partial}$という表式をとる。nが整数なので、無限に多くの生成子が存在することになる。
+\\
+次にこれらの交換関係を求める。
+\begin{align}
+    [l_n,l_m] 
+    &= (m-n)l_{n+m}\\
+    [\bar{l}_n,\bar{l}_m] 
+    &= (m-n)\bar{l}_{n+m}\\
+    [l_n,\bar{l}_m] &= 0
+\end{align}
+これらの代数関係はwiit algebraと呼ばれる。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
