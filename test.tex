@@ -143,10 +143,31 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     [l_n,\bar{l}_m] &= 0
 \end{align}
 これらの代数関係はwiit algebraと呼ばれる。
+\\
+ネーターの定理
+を用いて保存量を求める。まず、変分を求める。
+まずこのような座標と場の変換を考える。
+\begin{align}
+    x'^\mu=x^\mu+\omega_a\frac{\delta x^\mu}{\delta \omega_a}
+    \\
+    \Phi'(x')=\Phi(x)+\omega_a \frac{\delta \mathcal{F}}{\delta \omega_a}
+\end{align}
+このとき同一の時空点における場の変化は次のように表される。
+\begin{align}
+    \delta \Phi(x) &= \Phi'(x)-\Phi(x)\\
+    &= \Phi'(x') - \Phi(x') + \Phi'(x) - \Phi'(x')\\
+    &= \omega_a\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))
+\end{align}
 
-
-
-
+次に作用の変分を求める。
+\begin{align}
+    \delta S &= S[\Phi'(x)] - S[\Phi(x)]\\
+    &= \int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta(\partial_\mu \Phi))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))-\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)})\partial_\mu \Phi(x))\omega_a\\
+    & \ \ \ \ +\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
+    &=\int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta \mathcal{F}}{\delta \omega_a} \partial_\mu \omega_a+\qty(- \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu \Phi(x)+\pdv{\mathcal{L}}{\Phi}\frac{\delta x^\nu}{\delta \omega_a}\Phi(x)\delta^\nu_\mu+\frac{\delta x^\nu}{\delta \omega_a}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi(x))\partial_\mu\omega_a\\
+\end{align}
 
 
 
