@@ -158,8 +158,40 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     &= \Phi'(x') - \Phi(x') + \Phi'(x) - \Phi'(x')\\
     &= \omega_a\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))
 \end{align}
-
-次に作用の変分を求める。
+簡単のためにスカラー場の場合を考えてみる。
+スカラー場の場合は、作用の変分は次のように表される。まず$\omega_a$として定数とする。
+\begin{align}
+    \delta S[\Phi] &=\int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta(\partial_\mu \Phi))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\partial_\mu(\delta \Phi))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\delta \Phi + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta \Phi)\\
+   &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\\
+ \end{align}
+   表面項は無視できるとする。このとき、この変換に対して対称性があるとき、$\delta S=0$となる。
+   つぎに$\omega_a$を定数ではなく、座標依存にした場合を考える。
+   このとき、先ほど表面項として無視した部分が重要になる。
+   \begin{align}
+    \delta S[\Phi] 
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\partial_\mu(\delta \Phi))\\
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\delta \Phi + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta \Phi)\\
+   &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
+   & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a)\\
+   &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
+   & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\noindent \\
+   & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
+   \end{align}
+    対称性のある変換の場合、$\delta S[\Phi]$は全微分項になる。つまり今回の場合では$\delta S[\Phi]=-x_\nu\partial^{\nu}L$となる。これを用いて保存量を求める。
+\begin{align}
+    0 
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
+    & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\noindent \\
+    & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
+  &\ \  + \int d^dx \partial_\mu\qty(-x_\nu \mathcal{L})\omega_a\\
+\Rightarrow \partial_\mu j^\mu_a &=0\\
+j^\mu_a &= \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) - -x_\nu \mathcal{L}
+\end{align}
+%https://gemini.google.com/share/30b5293073dd
+   次に作用の変分を求める。
 \begin{align}
     \delta S &= S[\Phi'(x)] - S[\Phi(x)]\\
     &= \int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
