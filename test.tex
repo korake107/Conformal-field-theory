@@ -191,7 +191,7 @@ $\eta^{\mu\nu}$をかけてトレースをとると
 j^\mu_a &= \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) - -x_\nu \mathcal{L}
 \end{align}
 %https://gemini.google.com/share/30b5293073dd
-   次に作用の変分を求める。
+次に作用の変分を求める。
 \begin{align}
     \delta S &= S[\Phi'(x)] - S[\Phi(x)]\\
     &= \int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
@@ -200,18 +200,52 @@ j^\mu_a &= \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\del
     & \ \ \ \ +\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
     &=\int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta \mathcal{F}}{\delta \omega_a} \partial_\mu \omega_a+\qty(- \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu \Phi(x)+\pdv{\mathcal{L}}{\Phi}\frac{\delta x^\nu}{\delta \omega_a}\Phi(x)\delta^\nu_\mu+\frac{\delta x^\nu}{\delta \omega_a}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi(x))\partial_\mu\omega_a\\
 \end{align}
-
-
-
-
-
-
-
-
-
-
-
-
+保存の式
+\begin{align}
+    \partial_\muj^\mu_a=0
+\end{align}
+ここから電荷を定義する。
+\begin{align}
+    Q_a=\int d^{d-1}x j^0_a
+\end{align}
+これは保存の式を用いることにより、保存していることが分かる。
+\begin{align}
+    \frac{d}{d t}Q_a=\int d^{d-1}\partial_0j_a^0=-\int d^{d-1}x \partial_i j^i=0 
+\end{align}
+最後はガウスの発散定理を用いて、無限大においてカレントが0になることを使った。
+このカレントに反対称なテンソルを加えても保存の式は成り立つことを確認する。
+\begin{align}
+    j_a^\mu \rightarrow j_a^\mu +\partial_\nu B_a^{\nu\mu}\ ,\ B_a^{\nu\mu}=-B_a^{\mu\nu} 
+\end{align}
+この変換に対して、$\partial_\mu$を作用させると2項目に対して、対称テンソルと反対称テンソルにより0になるので、保存の式は成り立っている。
+\\
+次にエネルギーモーメントテンソルを考える。
+$x'^\mu=x^\mu +\omega^\mu(x)$という任意の座標変換を考える。
+\begin{align}
+    \delta S=\int d^dxT^{\mu\nu}\partial_\mu \omega_\nu
+\end{align}
+特に並進の$\omega^\mu=const$の場合ではエネルギー運動量テンソルの表式が次のようになる。
+\begin{align}
+    T_c^{\mu\nu}=-\eta^{\mu\nu}\mathcal{L}+\pdv{\mathcal{L}}{\partial_\mu \Phi}\partial^\nu \Phi
+\end{align}
+この様に定義したエネルギー運動量テンソルは$\mu\nu$に関して対称ではない。しかし、カレントの場合の手順
+と同様にして対称化することができる。
+\begin{align}
+    T_B^{\mu\nu}=T^{\mu\nu}+\partial_\rho B^{\rho \mu\nu} \ \ B^{\rho\mu\nu}=-B^{\mu \rho \nu}
+\end{align}
+共形変換$x'^\mu =x^\mu +\epsilon^\mu (x)$
+このとき、カレントとエネルギー運動量テンソルの関係は次のようになっている。
+\begin{align}
+    j_\mu=T_{\mu\nu}\epsilon^\nu
+\end{align}
+並進は共形変換であるので、カレントの保存は次を示す。
+\begin{align}
+    0=\partial^\mu j_\mu=\partial^\mu(T_{\mu\nu}\epsilon^\nu)=(\partial^\mu T_{\mu \nu})\epsilon^\nu
+\end{align}
+$\epsilon$は任意であるので、$\partial^\mu T_{\mu\nu}=0$が得られる。一般の共形変換に対して、 $x'^\mu=x^\mu +\epsilon^\mu(x)$の場合を考える。
+\begin{align}
+    0=\partial^\mu j_\mu =(\partial^\mu T_{})
+\end{align}
 
 
 
