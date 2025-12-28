@@ -1,4 +1,4 @@
-\documentclass[11pt, draft]{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=35truemm]{geometry} % 余白を35mmに設定
 
@@ -95,7 +95,7 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     2\partial_\rho\partial_\mu \epsilon_\nu &= \frac{2}{d}\qty(\eta_{\mu\rho}\partial_\nu + \eta_{\nu\rho}\partial_\mu - \eta_{\mu\nu}\partial_\rho)(\partial\cdot\epsilon)\label{18}
 \end{align}
 \section{2次元の共形場理論}
-(\ref{11})より次の関係が成り立つ。
+二次元の共形場理論に限って考える。計量は$g_{00}=1,g_{11}=1,g_{01}=g_{10}=0$のため(\ref{11})より次の関係が成り立つ。
 \begin{align}
     \partial_1\epsilon_1 &= \partial_2\epsilon_2\\
     \partial_1\epsilon_2 &= -\partial_2\epsilon_1
@@ -144,13 +144,14 @@ $\eta^{\mu\nu}$をかけてトレースをとると
 \end{align}
 これらの代数関係はwiit algebraと呼ばれる。
 \\
+\subsection{ネーターの定理}
 ネーターの定理
 を用いて保存量を求める。まず、変分を求める。
 まずこのような座標と場の変換を考える。
 \begin{align}
     x'^\mu=x^\mu+\omega_a\frac{\delta x^\mu}{\delta \omega_a}
     \\
-    \Phi'(x')=\Phi(x)+\omega_a \frac{\delta \mathcal{F}}{\delta \omega_a}
+    \Phi'(x')=\Phi(x)+\omega_a \frac{\delta \mathcal{F}}{\delta \omega_a}\label{39}
 \end{align}
 このとき同一の時空点における場の変化は次のように表される。
 \begin{align}
@@ -176,43 +177,53 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\delta \Phi + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta \Phi)\\
    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
    & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a)\\
-   &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
-   & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\noindent \\
+   &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\notag\\
+   & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\notag \\
    & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
    \end{align}
-    対称性のある変換の場合、$\delta S[\Phi]$は全微分項になる。つまり今回の場合では$\delta S[\Phi]=-x_\nu\partial^{\nu}L$となる。これを用いて保存量を求める。
+    対称性のある変換の場合、$\delta S[\Phi]$は全微分項になる。つまり今回の場合では$\delta S[\Phi]=\omega_a\frac{\delta x^\mu}{\delta \omega_a }\partial_\mu \mathcal{L}$となる。これを用いて保存量を求める。
 \begin{align}
     0 
-    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\noindent \\
-    & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\noindent \\
-    & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
-  &\ \  + \int d^dx \partial_\mu\qty(-x_\nu \mathcal{L})\omega_a\\
-\Rightarrow \partial_\mu j^\mu_a &=0\\
-j^\mu_a &= \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)) - -x_\nu \mathcal{L}
+    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\notag\\
+    & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\notag \\
+    & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\notag\\
+  &\ \  + \int d^dx\  -\omega_a\frac{\delta x^\mu}{\delta \omega_a }\partial_\mu \mathcal{L}\label{55}
 \end{align}
+最後の項に対して部分積分を行い$\partial_\mu \omega_a$に比例する項を出現させる。
+ここで任意の関数$\omega_a(x)$に対して0にならなければならないので、$\partial_\mu \omega_a$の係数部分が保存していなければならない。
 %https://gemini.google.com/share/30b5293073dd
-次に作用の変分を求める。
+ここで、$\partial_\mu \omega_a$の係数を$-j_a^\mu$とするとカレント$j_a^\mu$の表式は次のようになっている。
 \begin{align}
-    \delta S &= S[\Phi'(x)] - S[\Phi(x)]\\
-    &= \int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
-    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta(\partial_\mu \Phi))\\
-    &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))-\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)})\partial_\mu \Phi(x))\omega_a\\
-    & \ \ \ \ +\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
-    &=\int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta \mathcal{F}}{\delta \omega_a} \partial_\mu \omega_a+\qty(- \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu \Phi(x)+\pdv{\mathcal{L}}{\Phi}\frac{\delta x^\nu}{\delta \omega_a}\Phi(x)\delta^\nu_\mu+\frac{\delta x^\nu}{\delta \omega_a}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi(x))\partial_\mu\omega_a\\
+    j_a^\mu &= \qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\partial_\nu \Phi - \delta^\mu_\nu \mathcal{L})\frac{\delta x^\nu}{\delta \omega_a}\label{56}
 \end{align}
-保存の式
+
+    %次に作用の変分を求める。
+%\begin{align}
+%    \delta S &= S[\Phi'(x)] - S[\Phi(x)]\\
+ %   &= \int d^dx \mathcal{L}(\Phi'(x),\partial_\mu \Phi'(x)) - \int d^dx \mathcal{L}(\Phi(x),\partial_\mu \Phi(x))\\
+  %  &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\delta \Phi + \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\delta(\partial_\mu \Phi))\\
+   % &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))-\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)})\partial_\mu \Phi(x))\omega_a\\
+   % & \ \ \ \ +\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(\frac{\delta \mathcal{F}}{\delta \omega_a} - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
+    %&=\int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta \mathcal{F}}{\delta \omega_a} \partial_\mu \omega_a+\qty(- \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\frac{\delta x^\nu}{\delta \omega_a}\partial_\nu \Phi(x)+\pdv{\mathcal{L}}{\Phi}\frac{\delta x^\nu}{\delta \omega_a}\Phi(x)\delta^\nu_\mu+\frac{\delta x^\nu}{\delta \omega_a}\pdv{\mathcal{L}}{(\partial_\mu\Phi)}\partial_\nu\Phi(x))\partial_\mu\omega_a\\
+%\end{align}
+(\ref{55})式より保存の式の式が成り立つことを確認する。微分がついていない項は変分原理より0になるので、微分項のみを考える。
 \begin{align}
-    \partial_\muj^\mu_a=0
+    0 &=-\int d^dx j_a^\mu \partial_\mu \omega_a\\
+    &=-\int d^dx \partial_\mu (j_a^\mu \omega_a) + \int d^dx \omega_a \partial_\mu j_a^\mu  
+\end{align}
+１項目は表面項になるので無視できる。したがって、任意の関数$\omega_a$に対して0になるためには次の保存の式が成り立つ必要がある。
+\begin{align}
+    \partial_\mu j^\mu_a=0\label{59}
 \end{align}
 ここから電荷を定義する。
 \begin{align}
     Q_a=\int d^{d-1}x j^0_a
 \end{align}
-これは保存の式を用いることにより、保存していることが分かる。
+これは保存の式(\ref{59})を用いることにより、保存していることが分かる。
 \begin{align}
     \frac{d}{d t}Q_a=\int d^{d-1}\partial_0j_a^0=-\int d^{d-1}x \partial_i j^i=0 
 \end{align}
-最後はガウスの発散定理を用いて、無限大においてカレントが0になることを使った。
+最後はガウスの発散定理を用いて、無限遠においてカレントが0になることを使った。
 このカレントに反対称なテンソルを加えても保存の式は成り立つことを確認する。
 \begin{align}
     j_a^\mu \rightarrow j_a^\mu +\partial_\nu B_a^{\nu\mu}\ ,\ B_a^{\nu\mu}=-B_a^{\mu\nu} 
@@ -228,7 +239,7 @@ $x'^\mu=x^\mu +\omega^\mu(x)$という任意の座標変換を考える。
 \begin{align}
     T_c^{\mu\nu}=-\eta^{\mu\nu}\mathcal{L}+\pdv{\mathcal{L}}{\partial_\mu \Phi}\partial^\nu \Phi
 \end{align}
-この様に定義したエネルギー運動量テンソルは$\mu\nu$に関して対称ではない。しかし、カレントの場合の手順
+この様に定義したエネルギー運動量テンソルは添字$(\mu\nu)$に関して対称ではない。しかし、カレントの場合の手順
 と同様にして対称化することができる。
 \begin{align}
     T_B^{\mu\nu}=T^{\mu\nu}+\partial_\rho B^{\rho \mu\nu} \ \ B^{\rho\mu\nu}=-B^{\mu \rho \nu}
@@ -238,16 +249,67 @@ $x'^\mu=x^\mu +\omega^\mu(x)$という任意の座標変換を考える。
 \begin{align}
     j_\mu=T_{\mu\nu}\epsilon^\nu
 \end{align}
-並進は共形変換であるので、カレントの保存は次を示す。
+並進は共形変換であるので、カレントの保存は次を示す。今は並進のことを考えてるので、$\epsilon^\nu$は定数である。
 \begin{align}
     0=\partial^\mu j_\mu=\partial^\mu(T_{\mu\nu}\epsilon^\nu)=(\partial^\mu T_{\mu \nu})\epsilon^\nu
 \end{align}
-$\epsilon$は任意であるので、$\partial^\mu T_{\mu\nu}=0$が得られる。一般の共形変換に対して、 $x'^\mu=x^\mu +\epsilon^\mu(x)$の場合を考える。
+$\epsilon$は任意であるので、$\partial^\mu T_{\mu\nu}=0$が得られる。一般の共形変換に対して、つまり $x'^\mu=x^\mu +\epsilon^\mu(x)$の場合を考える。保存の式から次のことを示せる。
 \begin{align}
-    0=\partial^\mu j_\mu =(\partial^\mu T_{})
+    0=\partial^\mu j_\mu =(\partial^\mu T_{\mu\nu})\epsilon^\nu + T_{\mu\nu}\partial^\mu \epsilon^\nu
+    &= T_{\mu\nu}\partial^\mu \epsilon^\nu\\
+    &= T_{\mu\nu}\frac{1}{2}(\partial^\mu \epsilon^\nu + \partial^\nu \epsilon^\mu)\label{69}\\
+    &= T_{\mu\nu}\frac{1}{d}(\partial \cdot \epsilon)\eta^{\mu\nu}\label{70}\\
+    &= \frac{1}{d}(\partial \cdot \epsilon)T^{\ \mu}_\mu\label{71}
 \end{align}
-
-
-
+(\ref{69})式ではエネルギー運動量テンソルが対称であることを用いた。(\ref{70})式では共形キリング方程式(\ref{11})式を用いた。
+(\ref{71})式より、エネルギー運動量テンソルのトレースが0であるか$\epsilon$がキリングベクトル($\partial \cdot \epsilon=0$)である場合に保存の式が成り立つことがわかる。共形キリングベクトルの場合は$\epsilon$はキリングベクトルではないので、エネルギー運動量テンソルのトレースが0である必要がある。
+\subsection{ward-Takahashiの関係式}
+場を量子化した場合を考える。今までは古典的に連続対称性にフォーカスをあてていたが、量子レベルでは相関関数が重要になる。
+\subsubsection{相関関数}
+まず自由場のラグランジアン密度はローレンツ不変性を満たすことに注意して次のように書くことが出来る。
+\begin{align}
+    \mathcal{L}=\frac{1}{2}\partial_\mu \phi \partial^\mu \phi - \frac{1}{2}m^2 \phi^2
+\end{align}
+経路積分は次のように書き下すことが出来る。
+\begin{align}
+    Z_0(J)\equiv \braket{0}{0}_J=\int \mathcal{D}\phi \exp\qty[i\int d^4x \qty(\mathcal{L}+J(x)\phi(x))]
+\end{align}    
+ここで$J$は外部から加えられるソース項である。相関関数は次のようにして求めることが出来る。
+$[D\phi]$は可能なすべての場の配置にわたる積分を表している。
+\begin{align}
+    \mel**{0}{T\phi(x_1)\phi(x_2)\cdots \phi(x_n)}{0}=\frac{1}{i^n}\frac{1}{Z_0(0)}\qty(\frac{\delta}{\delta J(x_1)}\frac{\delta}{\delta J(x_2)}\cdots \frac{\delta}{\delta J(x_n)})Z_0(J)\Bigg|_{J=0}
+\end{align}
+左辺のTは時間順序を表している。相関関数は場の量子論において重要な役割を果たす。
+又相関関数は次のようにも書くことが出来る。
+\begin{align}
+    \mel**{0}{T\phi(x_1)\phi(x_2)\cdots \phi(x_n)}{0}=\frac{\int \mathcal{D}\phi \ \phi(x_1)\phi(x_2)\cdots \phi(x_n) \exp\qty[i\int d^4x \ \mathcal{L}]}{\int \mathcal{D}\phi \exp\qty[i\int d^4x \ \mathcal{L}]}
+\end{align}
+経路積分の中に含まれる場は自由に入れ替えることが出来る。したがって時間順序は自動的に満たされている。
+\begin{align}
+      \mel**{0}{T\phi(x_1)\phi(x_2)\cdots \phi(x_n)}{0}=\ev{\phi(x_1)\phi(x_2)\cdots \phi(x_n)}
+\end{align}
+ここで$\ev{\cdots}$は真空期待値を表している。\\
+連続対称性は相関関数にどのような影響を与えるかを考える。
+連続変換により$x\rightarrow x'$に$\phi\rightarrow \phi'$に変化したとする。
+このとき次のような関係が成り立つ。
+\begin{align}
+    \ev{\phi(x'_1)\phi(x'_2)\cdots \phi(x'_n)}=&\frac{1}{Z_0}\int \mathcal{D}\phi \ \phi(x_1)\phi(x_2)\cdots \phi(x_n) \exp\qty[i\int d^4x \ \mathcal{L}]\\
+    =&\frac{1}{Z_0}\int \mathcal{D}\phi' \ \phi'(x_1)\phi(x_2)\cdots \phi(x_n) \exp\qty[i\int d^4x \ \mathcal{L}]\\
+=&\frac{1}{Z_0}\int \mathcal{D}\phi \ \mathcal{F}(\phi(x_1))\mathcal{F}(\phi(x_2))\cdots \mathcal{F}(\phi(x_n)) \exp\qty[i\int d^4x' \ \mathcal{L}']\\
+=&\ev{\mathcal{F}(\phi(x_1))\mathcal{F}(\phi(x_2))\cdots \mathcal{F}(\phi(x_n))}
+\end{align}  
+2つ目の等号では積分変数を変えているに過ぎない。3つ目の等号では場の変換(\ref{39})を用いている。
+\subsubsection{ward-Takahashiの関係式}
+ネーターの定理の量子論版がward-Takahashiの関係式である。まず無限小変換を考える。
+\begin{align}
+    \Phi'(x)=\Phi(x)-i\omega_a G_a\Phi(x)
+\end{align}
+ここで$G_a$は変換の生成子である。作用の変分は次のようになる。
+相関関数は対称性に対して不変であるので、次のように書くことが出来る。
+\begin{align}
+    \ev{X}=\frac{1}{Z_0}\int \mathcal{D}\Phi \ (X+\delta X) \exp\qty[iS(\Phi)+i\int d^dx \omega_a(x)\partial_\mu j_a^\mu (x)]%この部分怪しい
+\end{align}
+ここで$X=\Phi(x_1)\Phi(x_2)\cdots \Phi(x_n)$である。$S[\Phi]=\int d^dx \mathcal{L}[\Phi]$を表している。最後の部分はネーターの定理を用いて作用の変分を表している。
+これを展開すると次のようになる。
 
 \end{document}
