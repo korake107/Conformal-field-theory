@@ -181,15 +181,15 @@ $\eta^{\mu\nu}$をかけてトレースをとると
    & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\notag \\
    & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\\
    \end{align}
-    対称性のある変換の場合、$\delta S[\Phi]$は全微分項になる。つまり今回の場合では$\delta S[\Phi]=\omega_a\frac{\delta x^\mu}{\delta \omega_a }\partial_\mu \mathcal{L}$となる。これを用いて保存量を求める。
+   変換パラメータ $\omega_a$ を時空点 $x$ に依存する関数とみなした場合、対称性の帰結として、作用の変分は $\partial_\mu \omega_a$ を含む項のみが残るはずである（運動方程式が満たされている場合）。具体的には、大域的変換でのラグランジアンの変化分 $\delta \mathcal{L} = \partial_\mu K^\mu$ （今回の並進では $K^\mu = \mathcal{L} \delta x^\mu$）を考慮すると、局所変換に対する作用の変分は以下のように整理できる。$$\delta S = - \int d^d x \, j_a^\mu \partial_\mu \omega_a$$ここで、$j_a^\mu$ は全微分項の寄与 $K^\mu$ を差し引いて定義されたカレントである
 \begin{align}
-    0 
+    \delta S[\Phi] 
     &= \int d^dx \qty(\pdv{\mathcal{L}}{\Phi} - \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}))\qty( - \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\omega_a\notag\\
     & \ \ + \int d^dx \partial_\mu\qty(\pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x)))\omega_a\notag \\
     & \ \ + \int d^dx \pdv{\mathcal{L}}{(\partial_\mu \Phi)}\qty(- \frac{\delta x^\mu}{\delta \omega_a}\partial_\mu \Phi(x))\partial_\mu\omega_a\notag\\
   &\ \  + \int d^dx\  -\omega_a\frac{\delta x^\mu}{\delta \omega_a }\partial_\mu \mathcal{L}\label{55}
 \end{align}
-最後の項に対して部分積分を行い$\partial_\mu \omega_a$に比例する項を出現させる。
+最後の項に対して部分積分を行い$\partial_\mu \omega_a$に比例する項を出現させる。表面項が現れるがこれは無視できるとする。
 ここで任意の関数$\omega_a(x)$に対して0にならなければならないので、$\partial_\mu \omega_a$の係数部分が保存していなければならない。
 %https://gemini.google.com/share/30b5293073dd
 ここで、$\partial_\mu \omega_a$の係数を$-j_a^\mu$とするとカレント$j_a^\mu$の表式は次のようになっている。
@@ -211,7 +211,7 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     0 &=-\int d^dx j_a^\mu \partial_\mu \omega_a\\
     &=-\int d^dx \partial_\mu (j_a^\mu \omega_a) + \int d^dx \omega_a \partial_\mu j_a^\mu  
 \end{align}
-１項目は表面項になるので無視できる。したがって、任意の関数$\omega_a$に対して0になるためには次の保存の式が成り立つ必要がある。
+この変換に対して系が対称性を持つとは、作用の変分 $\delta S$ がゼロ、もしくは全微分項（表面項）の積分にとどまることを意味する。表面項が境界条件により無視できる場合、大域的な変換（$\omega_a$ が定数）に対して作用は不変（$\delta S = 0$）となる。
 \begin{align}
     \partial_\mu j^\mu_a=0\label{59}
 \end{align}
@@ -247,7 +247,7 @@ $x'^\mu=x^\mu +\omega^\mu(x)$という任意の座標変換を考える。
 共形変換$x'^\mu =x^\mu +\epsilon^\mu (x)$
 このとき、カレントとエネルギー運動量テンソルの関係は次のようになっている。
 \begin{align}
-    j_\mu=T_{\mu\nu}\epsilon^\nu
+    j_\mu=T_{\mu\nu}\epsilon^\nu\label{66}
 \end{align}
 並進は共形変換であるので、カレントの保存は次を示す。今は並進のことを考えてるので、$\epsilon^\nu$は定数である。
 \begin{align}
@@ -426,10 +426,33 @@ $\lambda r_{12}=r_{12}^0$とすると、(\ref{116})式は次のように書け�
 \begin{align}
   \frac{C_{abc}}{r_{12}^ar_{23}^br_{31}^c}=&\frac{1}{}
 \end{align}
+プライマリ場につbseいては後で記述。
+\subsection{共形Ward-Takahashiの関係式}
+ward-Takahashiの関係式を共形変換の場合に適用する。
+共形不変性の場合のカレントはエネルギー運動量テンソルを用いて
+(\ref{66})式は次のように表されていた。
+このとき、共形Ward-Takahashiの関係式は次のようになる。
+\begin{align}
+   \delta_{\epsilon}\ev{X}=\int_D d^dx \ \partial_\mu \ev{T_{\mu\nu}\epsilon^\nu (x)X}
+\end{align}
+$X$には場の積が入る。$D$は場の挿入点$x_i$を含む任意の領域である。
+ここで、2次元の共形場理論では、複素平面と相性が良いので、これを用いて議論を進める。
+エネルギー運動量テンソルを複素座標の成分で表す。$dz\wedge d\bar{z}=(dx^1 +idx^2)\wedge(dx^1-idx^2) =-2idx^1\wedge dx^2
+$に注意する。
+\begin{align}
+    \int_D d^2x \ \partial^\mu \ev{T_{\mu\nu}\epsilon^\nu (x)X}=\int_D d^2z\cdot \frac{i}{2} \ \qty(\partial^z \ev{T_{zz}\epsilon(z)X}+\partial^{\bar{z}} \ev{T_{\bar{z}z}\bar{\epsilon}(\bar{z})X}+\partial^z \ev{T_{z\bar{z}}\bar{\epsilon}(\bar{z})X}+\partial^{\bar{z}} \ev{T_{\bar{z}z}\epsilon(z)X}
+    )
+    \end{align}
+ここで$\frac{\partial}{\partial z}=\frac{1}{2}\qty(\pdv{x^1}+\frac{1}{i}\pdv{x^2})$,$\frac{\partial}{\partial \bar{z}}=\frac{1}{2}\qty(\pdv{x^1}-\frac{1}{i}\pdv{x^2}),\epsilon(z)=\epsilon_1+i\epsilon_2,\bar{\epsilon}(\bar{z})=\epsilon_1-i\epsilon_2$と書けることと複素座標での計量に注意すると次のようにエネルギー運動量テンソルを複素座標で表すことが出来る。
+\begin{align}
+    T_{zz}=&\pdv{x^\mu}{z}\pdv{x^\nu}{z}T_{\mu\nu}=\qty(\frac{1}{2})\qty(\frac{1}{2})T_{11}+\qty(\frac{1}{2})
+\end{align}
+\begin{align}
+    T_{zz}&=\frac{1}{4}\qty(T_{11}-T_{22}+iT_{12}+iT_{21})=\frac{1}{4}(T_{11}-2iT_{12}-T_{22})\\
+    T_{\bar{z}\bar{z}}&=\frac{1}{4}\qty(T_{11}-T_{22}-iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+2iT_{12}-T_{22})\\
+    T_{z\bar{z}}&=\frac{1}{4}\qty(T_{11}+T_{22}-iT_{12}+iT_{21})=\frac{1}{4}(T_{11}+T_{22})\\
+    T_{\bar{z}z}&=\frac{1}{4}\qty(T_{11}+T_{22}+iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+T_{22})
+\end{align}
 
 
-
-
-
-
-    \end{document}
+\end{document}
