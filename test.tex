@@ -100,18 +100,18 @@ $\eta^{\mu\nu}$をかけてトレースをとると
     \partial_1\epsilon_1 &= \partial_2\epsilon_2\\
     \partial_1\epsilon_2 &= -\partial_2\epsilon_1
 \end{align}
-この式は複素解析におけるコーシー・リーマンの方程式と同じ形をしている。ここで$z=x^1+ix^2,\bar{z}=x^1-ix^2$と定義する。また、$\epsilon(z,\bar{z})=\epsilon_1(x^1,x^2)+i\epsilon_2(x^1,x^2)$と定義する。このとき、$\epsilon$は$z$のみに依存する正則関数である。
+この式は複素解析におけるコーシー・リーマンの方程式と同じ形をしている。ここで$z=x^1+ix^2,\overline{z}=x^1-ix^2$と定義する。また、$\epsilon(z,\overline{z})=\epsilon_1(x^1,x^2)+i\epsilon_2(x^1,x^2)$と定義する。このとき、$\epsilon$は$z$のみに依存する正則関数である。
 つまり、$z'=z+\epsilon(z)$と変換するとき、これは共形変換となる。すなはち、無限小変換は2次元の複素平面上の正則関数によって与えられる。
 実際に、複素平面における任意の正則変換は共形変換であることを示す。
 共形変換の条件を満たすか確認する。線素は次のように表される。
 \begin{align}
     ds^2 &= dx^1 + dx^2\\
-    &= dz d\bar{z}  
+    &= dz d\overline{z}  
 \end{align}
-ここで、$z \to z' = f(z), \bar{z} \to \bar{z}' = \bar{f}(\bar{z})$と変換する。このとき線素は
+ここで、$z \to z' = f(z), \overline{z} \to \overline{z}' = \overline{f}(\overline{z})$と変換する。このとき線素は
 \begin{align}
-    ds^2 &= dz' d\bar{z}'\\
-    &= \pdv{f}{z}\pdv{\bar{f}}{\bar{z}} dz d\bar{z}\\
+    ds^2 &= dz' d\overline{z}'\\
+    &= \pdv{f}{z}\pdv{\overline{f}}{\overline{z}} dz d\overline{z}\\
     &= \qty|\pdv{f}{z}| ds^2
 \end{align}
 となる。したがって、任意の正則関数は共形変換を与えることがわかる。
@@ -119,28 +119,28 @@ $\eta^{\mu\nu}$をかけてトレースをとると
 無限小変換から場の無限小変換を求める。そのためにまず、無限小変換に対してローラン展開をする。
 \begin{align}
     z' &= z + \epsilon(z)=z+\sum_{n\in \mathcal{Z}}\epsilon_n\cdot(-z^{n+1})\\
-    \bar{z'}&=\bar{z}+\bar{\epsilon}(\epsilon)=\bar{z}+\sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot(-\bar{z}^{n+1})
+    \overline{z'}&=\overline{z}+\overline{\epsilon}(\epsilon)=\overline{z}+\sum_{n\in \mathcal{Z}}\overline{\epsilon}_n\cdot(-\overline{z}^{n+1})
 \end{align}
 無次元スカラー場を考える。
 \begin{align}
-    \phi'(z',\bar{z'})=\phi(z,\bar{z})
+    \phi'(z',\overline{z'})=\phi(z,\overline{z})
 \end{align}
 場の無限小変換を求める。
 \begin{align}
-    \delta \phi(z,\bar{z}) &= \phi'(z,\bar{z}) - \phi(z,\bar{z})\\
-    &= -\epsilon(z)\partial_z \phi(z,\bar{z}) - \bar{\epsilon}(\bar{z})\partial_{\bar{z}} \phi(z,\bar{z})\\
-    &= -\sum_{n\in \mathcal{Z}}\epsilon_n\cdot(-z^{n+1})\partial_z \phi(z,\bar{z}) - \sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot(-\bar{z}^{n+1})\partial_{\bar{z}} \phi(z,\bar{z})\\
-    &= \sum_{n\in \mathcal{Z}}\epsilon_n\cdot l_n \phi(z,\bar{z}) + \sum_{n\in \mathcal{Z}}\bar{\epsilon}_n\cdot \bar{l}_n \phi(z,\bar{z})  
+    \delta \phi(z,\overline{z}) &= \phi'(z,\overline{z}) - \phi(z,\overline{z})\\
+    &= -\epsilon(z)\partial_z \phi(z,\overline{z}) - \overline{\epsilon}(\overline{z})\partial_{\overline{z}} \phi(z,\overline{z})\\
+    &= -\sum_{n\in \mathcal{Z}}\epsilon_n\cdot(-z^{n+1})\partial_z \phi(z,\overline{z}) - \sum_{n\in \mathcal{Z}}\overline{\epsilon}_n\cdot(-\overline{z}^{n+1})\partial_{\overline{z}} \phi(z,\overline{z})\\
+    &= \sum_{n\in \mathcal{Z}}\epsilon_n\cdot l_n \phi(z,\overline{z}) + \sum_{n\in \mathcal{Z}}\overline{\epsilon}_n\cdot \overline{l}_n \phi(z,\overline{z})  
 \end{align}
-ただし、生成子は$l_n=-z^{n+1}\partial,\bar{l}_n=-\bar{z}^{n+1}\bar{\partial}$という表式をとる。nが整数なので、無限に多くの生成子が存在することになる。
+ただし、生成子は$l_n=-z^{n+1}\partial,\overline{l}_n=-\overline{z}^{n+1}\overline{\partial}$という表式をとる。nが整数なので、無限に多くの生成子が存在することになる。
 \\
 次にこれらの交換関係を求める。
 \begin{align}
     [l_n,l_m] 
     &= (m-n)l_{n+m}\\
-    [\bar{l}_n,\bar{l}_m] 
-    &= (m-n)\bar{l}_{n+m}\\
-    [l_n,\bar{l}_m] &= 0
+    [\overline{l}_n,\overline{l}_m] 
+    &= (m-n)\overline{l}_{n+m}\\
+    [l_n,\overline{l}_m] &= 0
 \end{align}
 これらの代数関係はwiit algebraと呼ばれる。
 \\
@@ -347,23 +347,23 @@ $[D\phi]$は可能なすべての場の配置にわたる積分を表してい�
 \subsection{プライマリ場}
 共形場理論において特別な役割を果たす場をプライマリ場というものを定義する。
 \\
-まず準プライマリ場を定義する。大域的共形変換$z\rightarrow \omega(z),\bar{z}\rightarrow \bar{\omega}(\bar{z})$の下で、場$\phi(x)$が次のように変換するとき、その場を準プライマリ場と呼ぶ。
+まず準プライマリ場を定義する。大域的共形変換$z\rightarrow \omega(z),\overline{z}\rightarrow \overline{\omega}(\overline{z})$の下で、場$\phi(x)$が次のように変換するとき、その場を準プライマリ場と呼ぶ。
 \begin{align}
-    \phi'(\omega,\bar{\omega})=\qty(\dv{\omega}{z})^{-h}\qty(\dv{\bar{\omega}}{\bar{z}})^{-\bar{h}}\phi(z,\bar{z})
+    \phi'(\omega,\overline{\omega})=\qty(\dv{\omega}{z})^{-h}\qty(\dv{\overline{\omega}}{\overline{z}})^{-\overline{h}}\phi(z,\overline{z})
 \end{align}
-ここで、$h,\bar{h}$は場の共形次元と呼ばれる無次元数である。
+ここで、$h,\overline{h}$は場の共形次元と呼ばれる無次元数である。
 \\
 次に無限小変換の場合を考える。
 \begin{align}
     z'&=z+\epsilon(z)\\
-    \bar{z'}&=\bar{z}+\bar{\epsilon}(\bar{z})
+    \overline{z'}&=\overline{z}+\overline{\epsilon}(\overline{z})
 \end{align}
 このとき、準プライマリ場の無限小変換は次のようになる。
 \begin{align}
-    \delta_{\epsilon,\bar{\epsilon}} \phi(z,\bar{z}) &= \phi'(z,\bar{z}) - \phi(z,\bar{z})\\
-    &= \phi'(z'-\epsilon(z),\bar{z}'-\bar{\epsilon}(\bar{z}) ) - \phi(z,\bar{z})\\
-    &= -h\pdv{\epsilon(z)}{z}\phi(z,\bar{z}) - \bar{h}\pdv{\bar{\epsilon}(\bar{z})}{\bar{z}}\phi(z,\bar{z}) - \epsilon(z)\partial_z \phi(z,\bar{z}) - \bar{\epsilon}(\bar{z})\partial_{\bar{z}} \phi(z,\bar{z})\\
-    &=-(h\phi \partial_z \epsilon + \epsilon \partial_z \phi) - (\bar{h}\phi \partial_{\bar{z}} \bar{\epsilon} + \bar{\epsilon} \partial_{\bar{z}} \phi)
+    \delta_{\epsilon,\overline{\epsilon}} \phi(z,\overline{z}) &= \phi'(z,\overline{z}) - \phi(z,\overline{z})\\
+    &= \phi'(z'-\epsilon(z),\overline{z}'-\overline{\epsilon}(\overline{z}) ) - \phi(z,\overline{z})\\
+    &= -h\pdv{\epsilon(z)}{z}\phi(z,\overline{z}) - \overline{h}\pdv{\overline{\epsilon}(\overline{z})}{\overline{z}}\phi(z,\overline{z}) - \epsilon(z)\partial_z \phi(z,\overline{z}) - \overline{\epsilon}(\overline{z})\partial_{\overline{z}} \phi(z,\overline{z})\\
+    &=-(h\phi \partial_z \epsilon + \epsilon \partial_z \phi) - (\overline{h}\phi \partial_{\overline{z}} \overline{\epsilon} + \overline{\epsilon} \partial_{\overline{z}} \phi)
 \end{align}
 プライマリ場は準プライマリ場のうち、任意の共形変換に対して上記の変換則を満たす場である。
 この定義よりプライマリ場は準プライマリ場の条件を満たす。しかし、その逆は成り立たない。
@@ -376,8 +376,8 @@ $[D\phi]$は可能なすべての場の配置にわたる積分を表してい�
 ここで、大域的な共形変換$z\rightarrow \lambda z$, $w\rightarrow \lambda w$を考える。
 このとき、2点関数は次のように変換する。
 \begin{align}
-    \ev{\phi_1(\lambda z)\phi_2(\lambda w)}=&\lambda^{-h_1 - h_2}\lambda^{-\bar{h}_1 - \bar{h}_2}\ev{\phi_1(z)\phi_2(w)}\\
-    =&\lambda^{-h_1 - h_2}\lambda^{-\bar{h}_1 - \bar{h}_2}g(z-w)\label{101}
+    \ev{\phi_1(\lambda z)\phi_2(\lambda w)}=&\lambda^{-h_1 - h_2}\lambda^{-\overline{h}_1 - \overline{h}_2}\ev{\phi_1(z)\phi_2(w)}\\
+    =&\lambda^{-h_1 - h_2}\lambda^{-\overline{h}_1 - \overline{h}_2}g(z-w)\label{101}
 \end{align}
 一方で、2点関数は次のようにも変換する。
 \begin{align}
@@ -386,23 +386,23 @@ $[D\phi]$は可能なすべての場の配置にわたる積分を表してい�
 \end{align}
 (\ref{101})式と(\ref{103})式を見比べ、これが任意の定数$\lambda$に対して成り立つためには、$g(z-w)$は次の形をとる必要がある。
 \begin{align}
-    g(z-w)=\frac{C_{12}}{(z-w)^{h_1 + h_2}(\bar{z}-\bar{w})^{\bar{h}_1 + \bar{h}_2}}
+    g(z-w)=\frac{C_{12}}{(z-w)^{h_1 + h_2}(\overline{z}-\overline{w})^{\overline{h}_1 + \overline{h}_2}}
 \end{align}
 ここで、$C_{12}$は定数である。
 更に,
 反転変換$z\rightarrow -\frac{1}{z},\omega\rightarrow -\frac{1}{\omega}$を考える。このとき、2点関数は次のように変換する。
 \begin{align}
-    \ev{\phi_1\qty(-\frac{1}{z})\phi_2\qty(-\frac{1}{w})}=&\qty(\frac{1}{z^2})^{-h_1}\qty(\frac{1}{w^2})^{-h_2}\qty(\frac{1}{\bar{z}^2})^{-\bar{h}_1}\qty(\frac{1}{\bar{w}^2})^{-\bar{h}_2}\ev{\phi_1(z)\phi_2(w)}\\
-    =&\frac{(z)^{2h_1}(w)^{2h_2}(\bar{z})^{2\bar{h}_1}(\bar{w})^{2\bar{h}_2}C_{12}}{(z-w)^{h_1 + h_2}(\bar{z}-\bar{w})^{\bar{h}_1 + \bar{h}_2}}
+    \ev{\phi_1\qty(-\frac{1}{z})\phi_2\qty(-\frac{1}{w})}=&\qty(\frac{1}{z^2})^{-h_1}\qty(\frac{1}{w^2})^{-h_2}\qty(\frac{1}{\overline{z}^2})^{-\overline{h}_1}\qty(\frac{1}{\overline{w}^2})^{-\overline{h}_2}\ev{\phi_1(z)\phi_2(w)}\\
+    =&\frac{(z)^{2h_1}(w)^{2h_2}(\overline{z})^{2\overline{h}_1}(\overline{w})^{2\overline{h}_2}C_{12}}{(z-w)^{h_1 + h_2}(\overline{z}-\overline{w})^{\overline{h}_1 + \overline{h}_2}}
 \end{align}\label{106}
 一方で、2点関数は次のようにも変換する。
 \begin{align}
     \ev{\phi_1\qty(-\frac{1}{z})\phi_2\qty(-\frac{1}{w})}=&g\qty(-\frac{1}{z} + \frac{1}{w})\\
     =&g\qty(\frac{z-w}{zw})\\
-    =&\frac{C_{12}}{(\frac{z-w}{zw})^{h_1 + h_2}(\frac{\bar{z}-\bar{w}}{\bar{z}\bar{w}})^{\bar{h}_1 + \bar{h}_2}}\\
-    =&\frac{(z)^{h_1 + h_2}(w)^{h_1 + h_2}(\bar{z})^{\bar{h}_1 + \bar{h}_2}(\bar{w})^{\bar{h}_1 + \bar{h}_2}C_{12}}{(z-w)^{h_1 + h_2}(\bar{z}-\bar{w})^{\bar{h}_1 + \bar{h}_2}}\label{110}
+    =&\frac{C_{12}}{(\frac{z-w}{zw})^{h_1 + h_2}(\frac{\overline{z}-\overline{w}}{\overline{z}\overline{w}})^{\overline{h}_1 + \overline{h}_2}}\\
+    =&\frac{(z)^{h_1 + h_2}(w)^{h_1 + h_2}(\overline{z})^{\overline{h}_1 + \overline{h}_2}(\overline{w})^{\overline{h}_1 + \overline{h}_2}C_{12}}{(z-w)^{h_1 + h_2}(\overline{z}-\overline{w})^{\overline{h}_1 + \overline{h}_2}}\label{110}
 \end{align}
-(\ref{106})式と(\ref{110})式を見比べ、これが任意の$z,w$に対して成り立つためには、$h_1=h_2$かつ$\bar{h}_1=\bar{h}_2$が必要である。
+(\ref{106})式と(\ref{110})式を見比べ、これが任意の$z,w$に対して成り立つためには、$h_1=h_2$かつ$\overline{h}_1=\overline{h}_2$が必要である。
 \subsubsection{3点関数}
 次に準プライマリ場の3点関数を考える。先ほどと同様に並進対称性より、次のように書くことが出来る。
 \begin{align}
@@ -422,11 +422,56 @@ $\lambda r_{12}=r_{12}^0$とすると、(\ref{116})式は次のように書け�
     g(x_{12},x_{23},x_{31})&=\sum_{a,b,c}\frac{C_{abc}}{r_{12}^ar_{23}^br_{31}^c}
 \end{align}
 次に特殊共形変形$x'^{\mu} =\frac{x^\mu-b^\mu x^2}{1-2bx+b^{2} x^{2}}$を考える。
-そのもとでの3点関数の変換の変換性は次のようになる。
+そのもとでの3点関数の変換の変換性は次のようになる。特殊共形変換は反転→平行移動→反転で、表現されることを用いる。\footnote{
+   簡単のため1次元の場合を考える。まず、平行移動$x' = x - b$の変換は$\pdv{x'}{x}=1$である。次に
+    反転による変換は$\pdv{y}{x}=-\frac{1}{x^2}$
+    である。したがって、特殊共形変換の
+    \begin{align}
+    \pdv{x'}{x}=&\pdv{x'}{y}\pdv{y}{x}\\
+    =&-\frac{1}{(1/x-b)^2}\cdot \qty(-\frac{1}{x^2})\\
+    =&\frac{1}{(1-2bx+b^2 x^2)^2}
+    \end{align}
+    }
 \begin{align}
-  \frac{C_{abc}}{r_{12}^ar_{23}^br_{31}^c}=&\frac{1}{}
+  \frac{C_{abc}}{r_{12}^a r_{23}^b r_{31}^c}=&\frac{C_{abc}}{r_{12}^{'a} r_{23}^{'b} r_{31}^{'c}\cdot (1-2b\cdot x_1 + b^2 x_1^2)^{h_1}(1-2b\cdot x_2 + b^2 x_2^2)^{h_2}(1-2b\cdot x_3 + b^2 x_3^2)^{h_3}}\label{a}\\
+  =&\frac{C_{abc}}{r_{12}^{a} r_{23}^{b} r_{31}^{c}}\cdot\frac{\gamma_1^{\frac{a+c}{2}}\gamma_2^{\frac{a+b}{2}}\gamma_3^{\frac{b+c}{2}}}{\gamma_1^{h_1}\gamma_2^{h_2}\gamma_3^{h_3}}\label{b}
 \end{align}
-プライマリ場につbseいては後で記述。
+ここで、$\gamma_i=1-2b\cdot x_i + b^2 x_i^2$とした。\footnote{(\ref{a})式から
+(\ref{b})式への変換は特殊共形変換が反転と平行移動を用いて表現されることを用いる。まず、反転変換$x^\mu \rightarrow \frac{x^\mu}{x^2}$の下での距離の変換を考える。
+\begin{align}
+    r_{ij}^{'2}=\qty(\frac{x_i^\mu}{x_i^2}-\frac{x_j^\mu}{x_j^2})^2=\frac{r_{ij}^2}{x_i^2 x_j^2}
+\end{align}
+次に平行移動$x^\mu \rightarrow x^\mu - b^\mu$の下での距離の変換を考える。
+\begin{align}
+    r_{ij}^{''2}=\qty(\frac{x_i^\mu}{x_i^2}-b^\mu - \frac{x_j^\mu}{x_j^2}+b^\mu)^2=r_{ij}^{'2}
+\end{align}
+最後に再び反転変換を行うと次のようになる。
+\begin{align}
+    r_{ij}^{'''2}=\qty(\frac{\frac{x_i^\mu}{x_i^2}-b^\mu}{\qty(\frac{x_i^\mu}{x_i^2}-b^\mu)^2}-\frac{\frac{x_j^\mu}{x_j^2}-b^\mu}{\qty(\frac{x_j^\mu}{x_j^2}-b^\mu)^2})^2=\frac{r_{ij}^{'2}}{\qty(\frac{x_i^\mu}{x_i^2}-b^\mu)^2\qty(\frac{x_j^\mu}{x_j^2}-b^\mu)^2}
+\end{align}
+これらを組み合わせると次のようになる。
+\begin{align}
+    r_{ij}^{'''2}=\frac{r_{ij}^2}{x_i^2 x_j^2 \qty(\frac{x_i^\mu}{x_i^2}-b^\mu)^2\qty(\frac{x_j^\mu}{x_j^2}-b^\mu)^2}=\frac{r_{ij}^2}{(1-2b\cdot x_i + b^2 x_i^2)(1-2b\cdot x_j + b^2 x_j^2)}
+\end{align}
+}
+この関係式が任意の$b$に対して成り立つためには、次の関係式が成り立つ必要がある。
+%https://gemini.google.com/share/b225813d907f
+\begin{align}
+    h_1=&\frac{a+c}{2}\\
+    h_2=&\frac{a+b}{2}\\
+    h_3=&\frac{b+c}{2}
+\end{align}
+これらの式を解くと次のようになる。
+\begin{align}
+    a=&h_1 + h_2 - h_3\\
+    b=&-h_1 + h_2 + h_3\\
+    c=&h_1 - h_2 + h_3
+\end{align}
+したがって、3点関数は次のように書ける。
+\begin{align}
+    \ev{\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}=&\frac{C_{123}}{r_{12}^{h_1 + h_2 - h_3}r_{23}^{-h_1 + h_2 + h_3}r_{31}^{h_1 - h_2 + h_3}}
+\end{align}
+
 \subsection{共形Ward-Takahashiの関係式}
 ward-Takahashiの関係式を共形変換の場合に適用する。
 共形不変性の場合のカレントはエネルギー運動量テンソルを用いて
@@ -437,22 +482,73 @@ ward-Takahashiの関係式を共形変換の場合に適用する。
 \end{align}
 $X$には場の積が入る。$D$は場の挿入点$x_i$を含む任意の領域である。
 ここで、2次元の共形場理論では、複素平面と相性が良いので、これを用いて議論を進める。
-エネルギー運動量テンソルを複素座標の成分で表す。$dz\wedge d\bar{z}=(dx^1 +idx^2)\wedge(dx^1-idx^2) =-2idx^1\wedge dx^2
+エネルギー運動量テンソルを複素座標の成分で表す。$dz\wedge d\overline{z}=(dx^1 +idx^2)\wedge(dx^1-idx^2) =-2idx^1\wedge dx^2
 $に注意する。
 \begin{align}
-    \int_D d^2x \ \partial^\mu \ev{T_{\mu\nu}\epsilon^\nu (x)X}=\int_D d^2z\cdot \frac{i}{2} \ \qty(\partial^z \ev{T_{zz}\epsilon(z)X}+\partial^{\bar{z}} \ev{T_{\bar{z}z}\bar{\epsilon}(\bar{z})X}+\partial^z \ev{T_{z\bar{z}}\bar{\epsilon}(\bar{z})X}+\partial^{\bar{z}} \ev{T_{\bar{z}z}\epsilon(z)X}
+    \int_D d^2x \ \partial^\mu \ev{T_{\mu\nu}\epsilon^\nu (x)X}=\int_D d^2z\cdot \frac{i}{2} \ \qty(\partial^z \ev{T_{zz}\epsilon(z)X}+\partial^{\overline{z}} \ev{T_{\overline{z}z}\overline{\epsilon}(\overline{z})X}+\partial^z \ev{T_{z\overline{z}}\overline{\epsilon}(\overline{z})X}+\partial^{\overline{z}} \ev{T_{\overline{z}z}\epsilon(z)X}
     )
     \end{align}
-ここで$\frac{\partial}{\partial z}=\frac{1}{2}\qty(\pdv{x^1}+\frac{1}{i}\pdv{x^2})$,$\frac{\partial}{\partial \bar{z}}=\frac{1}{2}\qty(\pdv{x^1}-\frac{1}{i}\pdv{x^2}),\epsilon(z)=\epsilon_1+i\epsilon_2,\bar{\epsilon}(\bar{z})=\epsilon_1-i\epsilon_2$と書けることと複素座標での計量に注意すると次のようにエネルギー運動量テンソルを複素座標で表すことが出来る。
+ここで$\frac{\partial}{\partial z}=\frac{1}{2}\qty(\pdv{x^1}+\frac{1}{i}\pdv{x^2})$,$\frac{\partial}{\partial \overline{z}}=\frac{1}{2}\qty(\pdv{x^1}-\frac{1}{i}\pdv{x^2}),\epsilon(z)=\epsilon_1+i\epsilon_2,\overline{\epsilon}(\overline{z})=\epsilon_1-i\epsilon_2$と書けることと複素座標での計量に注意すると次のようにエネルギー運動量テンソルを複素座標で表すことが出来る。
 \begin{align}
-    T_{zz}=&\pdv{x^\mu}{z}\pdv{x^\nu}{z}T_{\mu\nu}=\qty(\frac{1}{2})\qty(\frac{1}{2})T_{11}+\qty(\frac{1}{2})
+    T_{zz}=&\pdv{x^\mu}{z}\pdv{x^\nu}{z}T_{\mu\nu}=\frac{1}{4}T_{11}-\frac{1}{4}T_{22}-\frac{i}{4}T_{12}-\frac{i}{4}T_{21}=\frac{1}{4}(T_{11}-2iT_{12}-T_{22})\\
 \end{align}
+以下同様にして次のように計算することが出来る。
 \begin{align}
     T_{zz}&=\frac{1}{4}\qty(T_{11}-T_{22}+iT_{12}+iT_{21})=\frac{1}{4}(T_{11}-2iT_{12}-T_{22})\\
-    T_{\bar{z}\bar{z}}&=\frac{1}{4}\qty(T_{11}-T_{22}-iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+2iT_{12}-T_{22})\\
-    T_{z\bar{z}}&=\frac{1}{4}\qty(T_{11}+T_{22}-iT_{12}+iT_{21})=\frac{1}{4}(T_{11}+T_{22})\\
-    T_{\bar{z}z}&=\frac{1}{4}\qty(T_{11}+T_{22}+iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+T_{22})
+    T_{\overline{z}\overline{z}}&=\frac{1}{4}\qty(T_{11}-T_{22}-iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+2iT_{12}-T_{22})\\
+    T_{z\overline{z}}&=\frac{1}{4}\qty(T_{11}+T_{22}-iT_{12}+iT_{21})=\frac{1}{4}(T_{11}+T_{22})\\
+    T_{\overline{z}z}&=\frac{1}{4}\qty(T_{11}+T_{22}+iT_{12}-iT_{21})=\frac{1}{4}(T_{11}+T_{22})
 \end{align}
+トレースレス性$T^\mu_\mu=0$より、$T_{z\overline{z}}=T_{\overline{z}z}=0$であることに注意する。
+したがって、次のように書ける。
+\begin{align}
+    \int_D d^2x \ \partial^\mu \ev{T_{\mu\nu}\epsilon^\nu (x)X}=&\int_D d^2z\cdot \frac{i}{2} \ \qty(\partial^z \ev{T_{zz}\epsilon(z)X}+\partial^{\overline{z}} \ev{T_{\overline{z}\overline{z}}\overline{\epsilon}(\overline{z})X})
+\end{align}
+ここで、共形変換は$z\rightarrow z+\epsilon(z),\overline{z}\rightarrow \overline{z}+\overline{\epsilon}(\overline{z})$であることに注意する。
+ガウスの定理を用いると、次のように書くことが出来る。$d^2z=dz\wedge d\overline{z}$の意味であったことに注意して、
+\begin{align}
+   \delta_{\epsilon,\overline{\epsilon}}\ev{X}=\frac{i}{2}\oint_{\partial D} \qty(d\overline{z} \ev{T_{zz}\epsilon(z)X}-dz \ev{T_{\overline{z}\overline{z}}\overline{\epsilon}(\overline{z})X})
+\end{align}
+保存の式$\partial^\mu T_{\mu\nu}=0$より、$\partial^{z} \ev{T_{zz}\epsilon(z)X}=0$かつ$\partial^{\overline{z}} \ev{T_{\overline{z}\overline{z}}\overline{\epsilon}(\overline{z})X}=0$である。ここで、複素の場合の計量は非対角成分のみが残っていることに注意すると、$T_{zz}$は正則な関数であり、$T_{\overline{z}\overline{z}}$は反正則な関数であることが分かる。
+よって、$T=-2\pi T_{zz},\overline{T}=-2\pi T_{\overline{z}\overline{z}}$と定義すると、共形Ward-Takahashiの関係式は次のように書ける。
+\begin{align}
+    \delta_{\epsilon,\overline{\epsilon}}\ev{X}=-\frac{1}{2\pi i}\oint_{\partial D} dz \ \epsilon(z) \ev{T(z)X} + \frac{1}{2\pi i}\oint_{\partial D} d\overline{z} \ \overline{\epsilon}(\overline{z}) \ev{\overline{T}(\overline{z})X}
+\end{align}
+これをプライマリ場の場合に適用することを考えると、任意の局所的な共形変換に対しる相関関数の変化の定義式と捉えることが出来る。それが共形Ward-Takahashiの関係式である。
+$X$には場の積が入る。\\簡単のためにここでは場が1つ挿入された場合について考えてみる。
+場が1つの場合は、積分領域$D$をいくらでも小さく取れるので、エネルギー運動量テンソルの位置$z$がプライマリ場の位置$z_1$に近づくときの特異的な振る舞いが積分に効いてくる。
+そのために次の関係式を持ち出す。以下はコーシーの積分定理を用いている。
+\begin{align}
+    (\partial_{\omega_i}\epsilon(\omega_i))\phi_i(\omega_i,\overline{\omega}_i)=&\frac{1}{2\pi i}\oint_{C_i} dz \ \frac{\epsilon(z)}{(z-\omega_i)^2}\phi_i(\omega_i,\overline{\omega_i})\\
+\epsilon(\omega_i)(\partial_{\omega_i}\phi_i(\omega_i,\overline{\omega}_i))=&\frac{1}{2\pi i}\oint_{C_i} dz \ \frac{\epsilon(z)}{(z-\omega_i)}\partial_{\omega_i}\phi_i(\omega_i,\overline{\omega}_i)
+\end{align}
+よって共形Ward-Takahashiの関係式の中身は次のように書ける。
+\begin{align}
+\ev{T_z X}=&\sum_{i=1}^n \qty(\frac{h_i}{(z-z_i)^2}+\frac{1}{z-z_i}\partial_{z_i})\ev{X}+reg.\\
+\end{align}
+ここで、$reg.$は正則な部分を表している。同様にして反正則な部分についても次のように書ける。
+この表現はすなわち、エネルギー運動量テンソルの引数
+$z$がプライマリ場の引き位置$z_i$に近づくときの特異的な振る舞いを示している。
+これは、ブラケットを取り除くことによりエネルギー運動量テンソルの演算子積展開
+を与えている。
+\begin{align}
+    T(z)\phi_i(w,\overline{w})\sim \frac{h_i}{(z-w)^2}\phi_i(w,\overline{w})+\frac{1}{z-w}\partial_w \phi_i(w,\overline{w})
+\end{align}
+$\sim$というのは、等式ではなく、特異的な振る舞いを示している。
+すなわち、正則な部分は無視している。
+しかし、それらの寄与はWard-Takahashiの関係式からは得ることができない。
+\subsection{ビラソロ代数}
+\subsubsection{動径量子化}
+通常の場の量子論では時間方向と空間方向は異なる扱いを受ける。一方、2次元の共形場理論ではユークリッド計量での複素座標を
+用いて議論を進めることが多い。このとき、時間方向と空間方向は対等に扱われる。
+そのため、時間方向に関する順序付けが出来なくなる。
+その代わりに、動径量子化という方法を用いる。動径量子化では、時間方向を複素平面上の原点からの距離$r$で定義する。
+まず、閉弦の場合を考える。閉弦の場合、空間方向は周期的である。一方、時間方向は高さのほうこうであり、無限に伸びている。
+これらを$\xi=t+ix$という変形により、複素平面上に写す。
+ここで、$t$は時間方向、$x$は空間方向である。円柱の周囲を$l$とする。
+これをさらに円柱から複素平面への写像$z=e^{2\pi\xi/l}$により、複素平面上に写す。
+
+
 
 
 \end{document}
