@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[dvipdfmx,11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=35truemm]{geometry} % 余白を35mmに設定
 
@@ -7,18 +7,24 @@
 \usepackage{amsthm}       % 定理環境
 \usepackage{amsfonts}     % 数学用フォント
 \usepackage{physics}      % 物理学の数式用マクロ (bra, ket, dvなど)
-\usepackage{bm}           % 太字の数式 \bm{}
+\usepackage{bm}           % 太字の数式 \bm{}b
 
 % --- 図や色、レイアウト関連のパッケージ ---
-\usepackage[dvipdfmx]{graphicx, color} % 図の挿入や色の利用
-\usepackage{tikz}         % 図形描画
-\usetikzlibrary{intersections,calc,arrows.meta}
+\usepackage{graphicx}     % 図の挿入
+\usepackage{color}        % 色の利用
+\usepackage{tikz}         % TikZ本体 (★ここが先！)
+\usetikzlibrary{arrows, shapes, decorations.markings, calc} % ライブラリ (★本体の後！)
+
 \usepackage{float}        % 図表の位置を調整 [H]など
 \usepackage{siunitx}      % 単位をきれいに表示 \SI{100}{\kilo\gram}など
 \usepackage{ascmac}       % itemboxなどの囲み枠
 
 % --- その他 ---
-\parindent = 0pt % 全体の段落開始時のインデントをなくす
+\tikzset{midarrow/.style={
+      decoration={markings, mark=at position 0.55 with {\arrow{stealth}}},
+      postaction={decorate}
+    }
+  }
 
 % --- ハイパーリンク関連 (できるだけ最後に読み込む) ---
 \usepackage[
@@ -28,6 +34,7 @@
     bookmarkstype=toc
 ]{hyperref}
 \usepackage{pxjahyper} % hyperrefの日本語文字化け対策
+
 \begin{document}
 
 \title{共形場理論}
@@ -545,8 +552,205 @@ $\sim$というのは、等式ではなく、特異的な振る舞いを示し�
 その代わりに、動径量子化という方法を用いる。動径量子化では、時間方向を複素平面上の原点からの距離$r$で定義する。
 まず、閉弦の場合を考える。閉弦の場合、空間方向は周期的である。一方、時間方向は高さのほうこうであり、無限に伸びている。
 これらを$\xi=t+ix$という変形により、複素平面上に写す。
-ここで、$t$は時間方向、$x$は空間方向である。円柱の周囲を$l$とする。
-これをさらに円柱から複素平面への写像$z=e^{2\pi\xi/l}$により、複素平面上に写す。
+ここで、$t$は時間方向、$x$は空間方向である。円筒の周囲を$l$とする。
+これをさらに円筒から複素平面への写像$z=e^{2\pi\xi/l}$により、複素平面上に写す。
+これは図\ref{p1}の変換に対応している。
+\begin{figure}[htbp]
+ \centering
+ \begin{tikzpicture}[>=stealth]
+
+  % --- 設定 ---
+  \def\cylW{4}   % シリンダーの長さ
+  \def\cylH{1}   % シリンダーの半径
+  \def\persP{0.3} % 遠近感（楕円のつぶれ具合）
+
+  % --- 左側：シリンダーの描画 ---
+  % シリンダーの塗りつぶし
+  \fill[top color=blue!10, bottom color=blue!10, middle color=blue!5, opacity=0.8]
+    (0,\cylH) -- (\cylW,\cylH) arc (90:-90:\persP cm and \cylH cm) -- (0,-\cylH) arc (-90:90:\persP cm and \cylH cm);
+  
+  % シリンダーの輪郭線
+  \draw (0,\cylH) -- (\cylW,\cylH); % 上の線
+  \draw (0,-\cylH) -- (\cylW,-\cylH); % 下の線
+  \draw (0,0) ellipse (\persP cm and \cylH cm); % 左の面（円）
+  \draw (\cylW,\cylH) arc (90:-90:\persP cm and \cylH cm); % 右の面（手前）
+  \draw[dashed, thin] (\cylW,-\cylH) arc (-90:-270:\persP cm and \cylH cm); % 右の面（奥・点線）
+
+  % t1, t2 のスライス
+  \draw[dashed, darkgray] (1.3,0) ellipse (\persP cm and \cylH cm);
+  \draw[dashed, darkgray] (2.7,0) ellipse (\persP cm and \cylH cm);
+
+  % t1, t2 のラベル
+  \node at (1.3, -1.4) {$t_1$};
+  \node at (2.7, -1.4) {$t_2$};
+
+  % t方向の矢印
+  \draw[->, thick] (0.5, 1.3) -- (3.5, 1.3) node[midway, above] {$t$};
+
+  % x方向の矢印
+  \draw[->, thick] (-0.15, -0.6) arc (-110:110:0.25cm and 0.7cm) node[midway, left] {$x$};
+
+
+  % --- 真ん中：写像の矢印 ---
+  \draw[->, very thick] (\cylW + 0.8, 0) -- (\cylW + 2.0, 0);
+
+
+  % --- 右側：平面（動径量子化）の描画 ---
+  \begin{scope}[shift={(\cylW + 4.5, 0)}] 
+    
+    % 原点
+    \fill[red!70!black] (0,0) circle (2pt);
+
+    % 同心円
+    \draw[dashed, thick] (0,0) circle (0.8cm);
+    \draw[dashed, thick] (0,0) circle (1.6cm);
+
+    % t1, t2 のラベル
+    \node at (0.8 + 0.35, 0) {$t_1$};
+    \node at (1.6 + 0.35, 0) {$t_2$};
+
+    % x方向の矢印
+    \draw[->, thick] (45:2.2) arc (45:135:2.2) node[midway, above] {$x$};
+
+  \end{scope}
+
+ \end{tikzpicture}
+ \caption{シリンダーから平面への写像（動径量子化）}
+ \label{p1}
+\end{figure}
+この写像において、時間方向$t$は原点からの距離$r$に対応しており、空間方向$x$は角度$\theta$に対応する。
+無限の過去$t\rightarrow -\infty$は原点$r\rightarrow 0$に対応し、無限の未来$t\rightarrow \infty$は無限遠$r\rightarrow \infty$に対応する。
+このようにして、時間方向と空間方向を対等に扱うことが出来る。
+よって、時間並進演算子$H$は動径方向のスケール変換の生成子に対応する。一方、空間並進演算子$P$は回転の生成子に対応する。
+\begin{align}
+    H=&L_0 + \overline{L}_0\\
+    P=&i(L_0 - \overline{L}_0
+    )
+\end{align}
+\\
+場の量子論に当たる時間順序積を動径順序積として定義する。
+\begin{align}
+    \mathcal{R}\qty(\phi_1(z_1,\overline{z}_1)\phi_2(z_2,\overline{z}_2))=&
+    \begin{cases}
+    \phi_1(z_1,\overline{z}_1)\phi_2(z_2,\overline{z}_2) & |z_1|>|z_2|\\
+    \phi_2(z_2,\overline{z}_2)\phi_1(z_1,\overline{z}_1) & |z_1|<|z_2|
+    \end{cases}
+\end{align}
+OPE(operator product expansion演算子積展開)も同様に動径順序積を用いて定義される。
+OPEと交換関係は次のように関係づけることが出来る。
+\begin{align}
+    \oint_{\omega}dz \ a(z)b(\omega)=\oint_{C_1} dz \ a(z)b(\omega)-\oint_{C_2} dz \ b(\omega)a(z)=[A,b(\omega)]\label{151}
+\end{align}
+$A$という演算子は$a(z)$を固定した時間で周回積分したものである。つまり
+\begin{align}
+    A=\oint_{C_1} dz \ a(z)
+\end{align}
+式(\ref{p2})を図で表したものが次である。
+
+\begin{figure}[htbp]
+ \begin{tikzpicture}
+  % --- スタイル定義（矢印の修正済み） ---
+  \tikzset{midarrow/.style={
+      decoration={markings, mark=at position 0.55 with {\arrow{stealth}}},
+      postaction={decorate}
+    }
+  }
+
+  % --- 設定 ---
+  \def\Rsmall{0.7}  % 小さい円の半径
+  \def\Rbig{2.2}    % 大きい円 C1 の半径
+  \def\Rmedium{1.4} % 中くらいの円 C2 の半径
+  
+  % w の相対位置 (x, y)
+  \def\wx{1.5}
+  \def\wy{0.8}
+
+  % === 1. 左の図（原点 (0,0) を中心に描画） ===
+  \coordinate (O1) at (0,0);
+  \coordinate (W1) at (\wx, \wy);
+
+  % 点 0 と w
+  \fill[red!70!black] (O1) circle (1.5pt) node[left, black, scale=0.8] {$0$};
+  \fill[red!70!black] (W1) circle (1.5pt) node[right, black, scale=0.8] {$w$};
+  % w の周りの円
+  \draw[midarrow] (W1) circle (\Rsmall);
+
+
+  % === 等号 (=) ===
+  \node at (3.5, 0) {$=$};
+
+
+  % === 2. 真ん中の図（x=6.5 を中心に描画） ===
+  \coordinate (O2) at (6.5, 0);
+  \coordinate (W2) at (6.5 + \wx, \wy);
+
+  % 点 0 と w
+  \fill[red!70!black] (O2) circle (1.5pt) node[left, black, scale=0.8] {$0$};
+  \fill[red!70!black] (W2) circle (1.5pt) node[right, black, scale=0.8] {$w$};
+  % 大きな円 C1
+  \draw[midarrow] (O2) circle (\Rbig);
+  \node at ($(O2) + (225:\Rbig+0.3)$) {$C_1$};
+
+
+  % === 引き算 (-) ===
+  \node at (10.5, 0) {$-$};
+
+
+  % === 3. 右の図（x=13.0 を中心に描画） ===
+  \coordinate (O3) at (13.0, 0);
+  \coordinate (W3) at (13.0 + \wx, \wy);
+
+  % 点 0 と w
+  \fill[red!70!black] (O3) circle (1.5pt) node[left, black, scale=0.8] {$0$};
+  \fill[red!70!black] (W3) circle (1.5pt) node[right, black, scale=0.8] {$w$};
+  % 中くらいの円 C2
+  \draw[midarrow] (O3) circle (\Rmedium);
+  \node at ($(O3) + (225:\Rmedium+0.3)$) {$C_2$};
+
+ \end{tikzpicture}
+ \caption{積分経路の変形}
+\end{figure}
+ここでは$C_1$を$\omega$よりも大きい円、$C_2$を$\omega$よりも小さい円とした。演算子$B$もAと同様に定義すると、次の交換関係が成り立つことが分かる。
+\begin{align}
+    [A,B]=&\oint_{0}d\omega[A,b(\omega)]\\
+    =&\oint_{0}d\omega \oint_{\omega}dz \ a(z)b(\omega)
+\end{align}
+\subsubsection{状態と演算子の対応関係}
+動径量子化において、状態と演算子の対応関係を考える。
+真空とは何も挿入されていない状態である。真空状態を$\ket{0}$と書く。
+始状態$\ket{\phi_{\text{in}}}$とは演算子が原点に挿入されている状態である。
+\begin{align}
+    \ket{\phi_{\text{in}}}=\lim_{z,\overline{z}\rightarrow 0}\phi(z,\overline{z})\ket{0}
+\end{align}
+同様に終状態$\bra{\phi_{\text{out}}}$も定義したい。
+円筒が存在していた空間はミンコフスキー空間であったので、エルミート共役が時空座標に影響を与えることはない。
+しかし、複素平面上ではエルミート共役によりユークリッド時間が反転する必要がある。それを見ていく。
+時間$t$を虚軸に解析接続$\tau=it$して得られる空間の時間並進を考える。\footnote{
+    このようにユークリッド時間をとったのは計量を正値計量にするためである。
+}演算子$A(\tau,x)$は
+\begin{align}
+A(\tau,x)=e^{H\tau}A(0,x)e^{-H\tau}    
+\end{align}
+この関係式のエルミート共役は
+\begin{align}
+    A(\tau ,x)^\dagger=e^{-H\tau}A(0,x)^\dagger e^{H\tau}
+\end{align}
+となる。時間並進の後にエルミート共役をとったものは$\tau=0$における演算子を時間反転して推進したものになっていることに注意する。
+この複合変換をユークリッド空間におけるエルミート共役とし、この節では$^+$と書くことにする。
+つまり、次の関係式が成り立つ。
+\begin{align}
+    A(\tau,x)^+=e^{H\tau}A(0,x)^+e^{-H\tau}
+\end{align}
+以上より、ユークリッド空間におけるエルミート空間は時間の反転に注意して、  $z\rightarrow e^{-\tau +ix}=\frac{1}{z^*}$の変換に対応していることに注意すればよい。
+よって、プライマリ場$\phi$に対してエルミート共役は次の関係を持っていることが分かる。
+\begin{align}
+    \phi^\dagger(z,\overline{z})\equiv\phi'(z,\overline{z})=(\overline{z})^{-2\bar{h}}
+\end{align}
+
+
+
+
+
 
 
 
